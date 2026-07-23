@@ -1,8 +1,5 @@
 from time import sleep
 
-def test():
-    pass
-
 dados = []
 cont = 1
 def pedir_inp(msg):
