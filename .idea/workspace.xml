@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="18951b6a-2b58-4f59-ae09-eb6b2509a464" name="Changes" comment="" />
+    <list default="true" id="18951b6a-2b58-4f59-ae09-eb6b2509a464" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Gerenciador-de-Estacionamento" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Gerenciador-de-Estacionamento/UnicesumarParking.py" beforeDir="false" afterPath="$PROJECT_DIR$/Gerenciador-de-Estacionamento/UnicesumarParking.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
