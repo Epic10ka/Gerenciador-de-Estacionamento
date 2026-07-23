@@ -29,7 +29,6 @@ def menu_p(): #while True pra criar loop e possibilitar a  volta para o menu pri
             print('——'*12)
         except ValueError:
             print('Digite uma opção válida')
-            continue
 
         while True:
             if choice == 1:                                                               #Aqui se a escolha for o 1 (Entrada de veículos), o menu de entrada aparecerá
