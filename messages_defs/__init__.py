@@ -1,17 +1,16 @@
-from rich import print
-from rich.panel import Panel
-from rich.align import Align
+from ui import print
+from language import language
 
 def error(message):
-    print(Align.center(Panel(f'{message}',title = f'<[red]ERROR[/]>')))
+    print(f'\n                                   <[red]ERROR[/]>\n                               [{message}]')
 
 
-def try_int(num):
+def try_int(msg, lang):
 
+    num = input(msg)
     while True:
-
         try:
             return int(num)
         except ValueError:
-            pass
+            error(f'{language[lang]['INVALID_NUM_ERROR']}')
 
