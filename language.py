@@ -19,7 +19,7 @@ language = {
         'TIME': 'HORÁRIO',
 
         #ENTRANCE MENU
-        'ENTRANCE_TIME': 'HORÁRIO DE ENTRADA',
+        'ENTRY_TIME': 'HORÁRIO DE ENTRADA',
         'INVALID_TIME': 'HORÁRIO INVÁLIDO',
 
 

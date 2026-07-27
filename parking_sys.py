@@ -1,7 +1,7 @@
-from ui import print, Panel, Align
+from ui.UI import print, Panel, Align
 
-from messages_defs import try_int
-from menu_defs import register_menu
+from ui.messages_defs import try_int
+from ui.menu_defs import register_menu
 from language import language
 
 

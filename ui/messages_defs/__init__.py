@@ -1,4 +1,4 @@
-from ui import print
+from ui.UI import print
 from language import language
 
 def error(message):

@@ -1,8 +1,7 @@
-from ui import print, Panel, Align
+from ui.UI import print, Panel, Align
 from language import language
-from messages_defs import error
+from ui.messages_defs import error
 from datetime import datetime
-from vehicles import Car
 
 
 def get_valid_time(msg_prompt: str, lang) -> datetime:
