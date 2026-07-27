@@ -45,7 +45,7 @@ def register_menu(lang):
 
             case 1:
 
-                hour_str = get_valid_time(f'\n                             {language[lang]['ENTRANCE_TIME']}: ', lang)
+                hour_str = get_valid_time(f'\n                             {language[lang]['ENTRY_TIME']}: ', lang)
 
 
 
