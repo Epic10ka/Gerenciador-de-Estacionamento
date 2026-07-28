@@ -1,4 +1,3 @@
-from ui import print, Panel, Align
 
 language = {
     'ptbr': {
@@ -17,14 +16,26 @@ language = {
         'VEHICLES ENTRANCE': 'ENTRADA DE VEÍCULOS',
         'VEHICLES EXIT':'SAÍDA DE VEÍCULOS',
         'TIME': 'HORÁRIO',
+        'PLATE': 'PLACA',
+        #REGISTER MESSAGE
+        'REGISTRATION_SUCCESSFULLY_COMPLETED': '[bright_white]REGISTRO REALIZADO COM[/] [green3]SUCESSO[/]',
+        'REGISTER_AGAIN': 'REGISTRAR NOVAMENTE?',
+
+
+        #NO ITEMS
+        'NO_PLATE': 'NENHUMA PLACA REGISTRADA',
+
 
         #ENTRANCE MENU
         'ENTRY_TIME': 'HORÁRIO DE ENTRADA',
-        'INVALID_TIME': 'HORÁRIO INVÁLIDO',
+        'INVALID_TIME': 'HORÁRIO INVÁLIDO (HH:MM)',
 
 
         #MESSAGES
         'INVALID_NUM_ERROR': 'NÚMERO INVÁLIDO',
+        'INVALID_PLATE_ERROR': 'PLACA INVÁLIDA',
+        'INVALID_OPTION_ERROR': 'OPÇÃO INVÁLIDA',
+
 
     },
 }

@@ -1,4 +1,4 @@
-from ui.UI import print, Panel, Align
+from ui.UI import print, Panel
 
 from ui.messages_defs import try_int
 from ui.menu_defs import register_menu
@@ -9,7 +9,7 @@ temp_language = 'ptbr'
 
 def language_selection():
 
-    print(Align.center(Panel('\n[[green1]1[/]] Brazilian portuguese\n\n[[blue]2[/]] English', width=30, title= '[bright_white]SELECT A LANGUAGE[/]')))
+    print(Panel('\n[[green1]1[/]] Brazilian portuguese\n\n[[blue]2[/]] English', width=30, title= '[bright_white]SELECT A LANGUAGE[/]'))
     while True:
 
         user_selection = input('\n                                    >').strip()[0]
@@ -38,9 +38,10 @@ def main_menu():
 
     while True:
 
-        print(Align.center(Panel(content, title = f'{language[temp_language]['PARKING SYS']}', width=50)))
+        print(Panel(content, title = f'{language[temp_language]['PARKING SYS']}', width=50))
 
-        menu_option = try_int(';)                                    >', temp_language)
+        menu_option = try_int('         > ', temp_language)
+
         int(menu_option)
 
         match menu_option:
