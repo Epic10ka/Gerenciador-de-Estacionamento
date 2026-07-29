@@ -16,9 +16,14 @@ This project was developed as a university assignment. The objective was to crea
 
 ## Concepts Applied
 
-* Exception Handling
-* Data persistence
-* OOP
+* Object-Oriented-Programming (OOP)
+* Modularization
+* Exception handling
+* File saving (JSON)
+* Input validation
+* Regex
+* Loops and functions
+* Datetime manipulation
 
 ## Features
 
