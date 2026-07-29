@@ -40,7 +40,7 @@ class Vehicle:
 
         """
 
-        self.exit_time = datetime.strptime(exit_time, '%H:%M')
+        self.exit_time = exit_time
 
         total_time = self.exit_time - self.entry_time
         total_minutes = total_time. total_seconds() / 60

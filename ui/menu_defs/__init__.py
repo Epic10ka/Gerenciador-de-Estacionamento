@@ -1,4 +1,4 @@
-from ui.UI import print, Panel, error, again_question, uuid4, re, datetime, data_save, data_load
+from ui.UI import print, Panel, error, again_question, uuid4, re, datetime, data_save, data_load, sleep
 from language import language
 from models.vehicle import Vehicle
 
@@ -72,7 +72,7 @@ def search_vehicle_id(vehicle_list, lang):
     """
     if not vehicle_list:
 
-        print(Panel(f'{language[lang]['NO_REGISTERED_VEHICLE']}'))
+        print(Panel.fit(f'{language[lang]['NO_REGISTERED_VEHICLE']}'))
         return None
 
     while True:
@@ -147,17 +147,21 @@ def exit_menu(lang):
             break
 
         vehicle = search_vehicle_id(vehicle_list, lang)
+        print(f'{language[lang]['VEHICLE_FOUND']}: {vehicle.tracking_id}')
+        sleep(1)
 
         if vehicle is None:
             continue
 
-        exit_time = get_valid_time(f'\n   {language[lang]['EXIT_TIME']}', lang)
+        exit_time = get_valid_time(f'\n   {language[lang]['EXIT_TIME']}: ', lang)
 
-        vehicle.calculate_price()
+        vehicle.calculate_price(exit_time)
+        print(f'{language[lang]['TAX_VALUE']}: {vehicle.tax:.2f}')
+        sleep(1)
 
         vehicle_list.remove(vehicle)
 
         data_save(vehicle_list)
 
-
-exit_menu('ptbr')
+#register_menu('ptbr')
+#exit_menu('ptbr')
