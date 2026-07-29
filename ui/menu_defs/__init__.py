@@ -20,6 +20,21 @@ def get_valid_time(msg_prompt: str, lang) -> datetime:
             error(f'{language[lang]['INVALID_TIME']}')
 
 
+def menu_option(opt, lang):
+
+    while True:
+
+        option = input('         > ').strip()
+
+        if option == '':
+            return ''
+
+        if option == opt:
+            return option
+
+        error(language[lang]['INVALID_OPTION_ERROR'])
+
+
 def plate_verify(lang):
 
     while True:
@@ -41,7 +56,6 @@ def plate_verify(lang):
             error(language[lang]['INVALID_PLATE_ERROR'])
 
 
-
 def id_gen():
 
     object_id = uuid4()
@@ -50,9 +64,37 @@ def id_gen():
     return final_id
 
 
+def search_vehicle_id(vehicle_list, lang):
 
+    """
+    Asks user an ID and search the matching vehicle in the list.
+    Allows user to search a complete ID or the first characters.
+    """
+    if not vehicle_list:
+
+        print(Panel(f'{language[lang]['NO_REGISTERED_VEHICLE']}'))
+        return None
+
+    while True:
+
+        search_id = input('         ID > ').strip()
+        if search_id == '':
+            return None
+
+        matches = [v for v in vehicle_list if v.tracking_id.startswith(search_id)]
+
+        if len(matches) == 1:
+            return matches[0]
+
+        elif len(matches) > 1:
+            error(f'{language[lang]['TYPE_MORE_CHARACTERS']}')
+
+        else:
+            error(f'{language[lang]['VEHICLE_NOT_FOUND']}')
+
+
+# [1] MENU
 def register_menu(lang):
-
 
     vehicle_list = data_load()
 
@@ -61,17 +103,12 @@ def register_menu(lang):
     while True:
 
         print()
-        print(Panel(content, title=f'[blue]{language[lang]['REGISTER VEHICLE']}[/]', width= 30))
+        print(Panel(content, title=f'[blue]{language[lang]['REGISTER_VEHICLE']}[/]', width= 30))
 
-        menu_option = input('         > ').strip()
+        select = menu_option('1', lang)
 
-        if menu_option == '':
+        if select == '':
             break
-
-        if menu_option != '1':
-            error(language[lang]['INVALID_OPTION_ERROR'])
-            continue
-
 
         hour = get_valid_time(f'\n   {language[lang]['ENTRY_TIME']}: ', lang)
 
@@ -92,6 +129,35 @@ def register_menu(lang):
             break
 
 
+# [2] MENU
+def exit_menu(lang):
+
+    vehicle_list = data_load()
+
+    content = f'       [1] {language[lang]['EXIT']}'
+
+    while True:
+
+        print()
+        print(Panel(content, title = f'[red]{language[lang]['REGISTER_EXIT']}[/]', width=30))
+
+        select = menu_option('1', lang)
+
+        if select == '':
+            break
+
+        vehicle = search_vehicle_id(vehicle_list, lang)
+
+        if vehicle is None:
+            continue
+
+        exit_time = get_valid_time(f'\n   {language[lang]['EXIT_TIME']}', lang)
+
+        vehicle.calculate_price()
+
+        vehicle_list.remove(vehicle)
+
+        data_save(vehicle_list)
 
 
-register_menu('ptbr')
+exit_menu('ptbr')

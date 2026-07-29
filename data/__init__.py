@@ -27,7 +27,6 @@ def data_load(filepath = DEFAULT_FILEPATH):
             data = json.load(file)
 
 
-
         return [
             Vehicle(entry = v['entry_time'], plate = v['plate'], tracking_id= v['vehicle_id']
                     )
@@ -36,5 +35,3 @@ def data_load(filepath = DEFAULT_FILEPATH):
 
     except json.JSONDecodeError:
         return []
-
-

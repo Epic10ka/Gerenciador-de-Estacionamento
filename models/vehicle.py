@@ -32,6 +32,7 @@ class Vehicle:
         self.exit_time = None
         self.tax =  15
 
+
     def calculate_price(self, exit_time):
 
         """
