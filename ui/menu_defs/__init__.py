@@ -53,6 +53,7 @@ def id_gen():
 
 def register_menu(lang):
 
+
     vehicle_list = data_load()
 
     content = f'       [1] {language[lang]['ENTRANCE']}'

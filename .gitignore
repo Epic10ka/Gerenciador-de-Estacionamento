@@ -1,3 +1,24 @@
+# -- Project files to ignore --
+
+# Testing local files
+test.py
+
+
+# Data generation
+vehicles.json
+*.json
+
+# -- Python Compilation and Caching --
+
 __pycache__/
+*.py[cod]
+*$py.class
+
+
 .idea/
-test.py/
+.venv/
+
+# --- S.O ---
+
+.DS_Store
+Thumbs.db

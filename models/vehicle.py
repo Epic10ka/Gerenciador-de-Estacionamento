@@ -22,7 +22,11 @@ class Vehicle:
     def __init__(self, entry, plate: str, tracking_id):
 
 
-        self.entry_time = datetime.strftime(entry, '%H:%M')
+        if isinstance(entry, str):      #if receive a string, will change it to datetime.
+            self.entry_time = datetime.strptime(entry, '%H:%M')
+        else:
+            self.entry_time = entry     #if entry already is a datetime object, keep it the same.
+
         self.plate = plate.upper()
         self.tracking_id = tracking_id
         self.exit_time = None
@@ -50,9 +54,18 @@ class Vehicle:
 
 
     def to_dict(self):
+
+        """
+        Turns the vehicle save into a dictionary to make it savable in JSON
+        """
+
         return {
-            'entry_time': self.entry_time.strftime('%H%M') if hasattr(self.entry_time, 'strftime') else self.entry_time, #hasattr -if self.entry_time has a method 'strftime' returns True
-            'plate': self.plate,
-            'vehicle_id': self.tracking_id
+            "entry_time": (
+                self.entry_time.strftime("%H:%M")
+                if hasattr(self.entry_time, "strftime")  #hasattr - if self.entry_time has a method 'strftime' returns True
+                else self.entry_time
+            ),
+            "plate": self.plate,
+            "vehicle_id": self.tracking_id,
         }
 
