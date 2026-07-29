@@ -1,46 +1,44 @@
-# Gerenciador-de-Estacionamento
+# Parking Management System (PMS)
 
-##  Demonstração do sistema
+## System Screenshots
 
-### Menu principal
-#test
+### Main Menu
 
-### Cadastro de veículos
-#test
+#Building
 
-           Sobre:
-Fiz o projeto para entrega na faculdade. O objetivo era fazer um gerenciador de estacionamento 
-com registros de entrada e saída, com taxas baseadas no tempo estacionado e contagem de veículos estacionados.
+### Vehicle Registration, departure and plate changing
 
+#Building
 
-        Conceitos aplicados:
--Loops
+## About
 
--Funções
+This project was developed as a university assignment. The objective was to create a parking management system capable of registering vehicle entries and exits, calculating parking fees based on the time each vehicle remained parked, and keeping track of the total number of vehicles currently in the parking lot.
 
--indentação e aninhamento
+## Concepts Applied
 
--Tratamento de erros
+* Exception Handling
+* Data persistence
+* OOP
 
--Acumuladores
+## Features
 
--Listas
+* Access the system's main menu.
+* Register a vehicle by entering its arrival time (hour and minute) and license plate.
+* After registering a vehicle, choose to register another one or return to the main menu.
+* View the total number of parked vehicles.
+* Register the exit time (hour and minute) of any previously registered vehicle.
+* Change vehicle plate.
+* Automatically calculate the parking fee based on the parking duration.
+* Automatic save.
 
-          Funcionalidades: 
+## How to Run the Project
 
--O usuário pode acessar o menu principal do sistema.
+1. Clone or download this repository:
 
--O usuário pode registrar um veículo, colocando hora e minuto de entrada, tipo e placa
+   ```
+   https://github.com/Epic10ka/Gerenciador-de-Estacionamento
+   ```
 
--Após o registro, o usuário pode cadastrar um novo veículo ou voltar ao menu.
+2. Open the project folder.
 
--No menu, após um registro, o usuário pode checar quantos carros estão estacionados ou
-registrar o horário e minuto de saída de um dos veículos registrados.
-
-           Como executar o projeto:
-
--Clone ou baixe esse repositório: https://github.com/Epic10ka/Gerenciador-de-Estacionamento
-
--Abra a pasta do projeto
-
--Execute o arquivo `UnicesumarParking` e teste-o
+3. Run the `parking_sys` file and test the application.
