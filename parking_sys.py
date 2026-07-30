@@ -1,7 +1,7 @@
 from ui.UI import print, Panel
 
 from ui.messages_defs import try_int
-from ui.menu_defs import register_menu
+from ui.menu_defs import register_menu, exit_menu
 from language import language
 
 
@@ -29,10 +29,9 @@ def language_selection():
 
 def main_menu():
 
-    #Default language, it can be changed in software running
 
     content= (f'\n            [1] {language[temp_language]['REGISTER VEHICLE']}'
-              f'\n\n            [2] {language[temp_language]['SHOW QUANTITY']}'
+              f'\n\n            [2] {language[temp_language]['EXIT']}'
               f'\n\n            [3] {language[temp_language]['SHOW REGISTERS']}'
               f'\n\n            [4] {language[temp_language]['CHANGE_LANGUAGE']}')
 
@@ -50,7 +49,7 @@ def main_menu():
                 register_menu(temp_language)
 
             case 2:
-                pass
+                exit_menu(temp_language)
 
             case 3:
                 pass

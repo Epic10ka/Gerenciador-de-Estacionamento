@@ -141,12 +141,18 @@ def exit_menu(lang):
         print()
         print(Panel(content, title = f'[red]{language[lang]['REGISTER_EXIT']}[/]', width=30))
 
+
         select = menu_option('1', lang)
 
         if select == '':
             break
 
+
         vehicle = search_vehicle_id(vehicle_list, lang)
+
+        if vehicle is None:
+            continue
+
         print(f'{language[lang]['VEHICLE_FOUND']}: {vehicle.tracking_id}')
         sleep(1)
 
@@ -155,13 +161,36 @@ def exit_menu(lang):
 
         exit_time = get_valid_time(f'\n   {language[lang]['EXIT_TIME']}: ', lang)
 
+
+        if lang == 'ptbr':
+            value = 'R$'
+        else:
+            value = '$'
+
         vehicle.calculate_price(exit_time)
-        print(f'{language[lang]['TAX_VALUE']}: {vehicle.tax:.2f}')
+
+        print(f'   {language[lang]['TOTAL_TIME']}: {vehicle.total_time}')
+        print(f'   {language[lang]['TAX_VALUE']}: [green]{value}[/]{vehicle.tax:.2f}')
         sleep(1)
 
         vehicle_list.remove(vehicle)
 
         data_save(vehicle_list)
 
-#register_menu('ptbr')
-#exit_menu('ptbr')
+
+# [3] MENU
+def show_register_menu(lang):
+
+    vehicle_list = data_load()
+
+    content = (f'\n     [1] {language[lang]['SHOW_REGISTER']}'
+              f'\n\n     [2] {language[lang]['SEE_QUANTITY']}')
+
+    while True:
+
+        print(Panel(content, title = f'[blue]{language[lang]['REGISTERED_VEHICLES']}[/]', width=35))
+        break
+        #Building
+
+
+show_register_menu('ptbr')

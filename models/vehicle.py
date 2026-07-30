@@ -30,24 +30,40 @@ class Vehicle:
         self.plate = plate.upper()
         self.tracking_id = tracking_id
         self.exit_time = None
-        self.tax =  15
+        self.tax =  5  #Value per hour
+        self.total_time = 0
 
 
     def calculate_price(self, exit_time):
 
         """
-        Calculates total parking time in minutes.
+        Calculates total parking time and the value to be paid.
 
         """
 
-        self.exit_time = exit_time
+        if isinstance(exit_time, str):
+            temp_exit = datetime.strptime(exit_time, '%H:%M')
+        else:
+            temp_exit = exit_time
+
+        self.exit_time = self.entry_time.replace(
+
+            hour = temp_exit.hour,
+            minute = temp_exit.minute,
+            second = 0,
+            microsecond = 0
+        )
+
+
 
         total_time = self.exit_time - self.entry_time
+        self.total_time = total_time
+
         total_minutes = total_time. total_seconds() / 60
 
         if total_minutes >= 60:
 
-            hour = total_minutes/60 * 3
+            hour = total_minutes/60 * self.tax
 
             self.tax = hour
 
@@ -69,4 +85,3 @@ class Vehicle:
             "plate": self.plate,
             "vehicle_id": self.tracking_id,
         }
-

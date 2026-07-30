@@ -31,7 +31,13 @@ language = {
         # EXIT MENU
         'EXIT': 'SAÍDA',
         'EXIT_TIME': 'HORÁRIO DE SAÍDA',
+        'TOTAL_TIME': 'TEMPO TOTAL',
 
+
+        # SHOW_REGISTERS MENU
+        'SHOW_REGISTER': 'MOSTRAR REGISTROS',
+        'SEE_QUANTITY': 'VER QUANTIDADE',
+        'REGISTERED_VEHICLES': 'VEÍCULOS REGISTRADOS',
 
         #MESSAGES
         'INVALID_NUM_ERROR': 'NÚMERO INVÁLIDO',
