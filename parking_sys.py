@@ -1,4 +1,4 @@
-from ui.UI import print, Panel
+from ui.UI import print, Panel, sleep
 
 from ui.messages_defs import try_int
 from ui.menu_defs import register_menu, exit_menu, show_register_menu
@@ -14,9 +14,11 @@ def language_selection():
         match user_selection:
 
             case '1':
+                sleep(0.2)
                 return 'ptbr'
 
             case '2':
+                sleep(0.2)
                 return 'en'
 
 
@@ -52,4 +54,5 @@ def main_menu():
                 temp_language = language_selection()
 
 
-main_menu()
+if __name__ == '__main__':
+    main_menu()
