@@ -15,7 +15,6 @@ def try_int(msg, lang):
         except ValueError:
             error(f'{language[lang]['INVALID_NUM_ERROR']}')
             continue
-            #test
 
 
 def again_question(lang, message):
