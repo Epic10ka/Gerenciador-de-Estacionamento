@@ -3,10 +3,13 @@ from language import language
 from models.vehicle import Vehicle
 
 
-def get_valid_time(msg_prompt: str, lang) -> datetime:
+#Get input 3
+def get_valid_time(msg_prompt, lang):
 
     while True:
-        time_str = input(msg_prompt)
+        time_str = input(msg_prompt).strip()
+        if time_str == '':
+         return ''
 
         try:
             #trying to convert the str input to a datetime
@@ -20,6 +23,7 @@ def get_valid_time(msg_prompt: str, lang) -> datetime:
             error(f'{language[lang]['INVALID_TIME']}')
 
 
+#Get input 2
 def menu_option(opt, lang):
 
     while True:
@@ -35,6 +39,7 @@ def menu_option(opt, lang):
         error(language[lang]['INVALID_OPTION_ERROR'])
 
 
+#Get input 3
 def plate_verify(lang):
 
     while True:
@@ -49,7 +54,7 @@ def plate_verify(lang):
 
         while True:
 
-            plate = input('         > ').strip().upper()
+            plate = input('       > ').strip().upper()
 
             if mercosul_pattern.match(plate):
                 return plate
@@ -64,6 +69,21 @@ def id_gen():
     return final_id
 
 
+def show_vehicles(vehicle_list,lang, msg):
+
+    cont = 0
+    content = ''
+
+    for n, v in enumerate(vehicle_list):
+        cont += 1
+        content += f'{v.tracking_id} -|- {v.plate}\n\n'
+
+    quantity =  f'               {cont} {language[lang]['VEHICLES']}'
+
+    print(Panel.fit(f'{content} {quantity}', title=f'[blue]{msg}'))
+
+
+#Get input 4
 def search_vehicle_id(vehicle_list, lang):
 
     """
@@ -98,19 +118,11 @@ def register_menu(lang):
 
     vehicle_list = data_load()
 
-    content = f'       [1] {language[lang]['ENTRANCE']}'
-
     while True:
 
-        print()
-        print(Panel(content, title=f'[blue]{language[lang]['REGISTER_VEHICLE']}[/]', width= 30))
-
-        select = menu_option('1', lang)
-
-        if select == '':
-            break
-
         hour = get_valid_time(f'\n   {language[lang]['ENTRY_TIME']}: ', lang)
+
+        if hour == '':break
 
         plate = plate_verify(lang)
 
@@ -132,21 +144,24 @@ def register_menu(lang):
 # [2] MENU
 def exit_menu(lang):
 
-    vehicle_list = data_load()
 
-    content = f'       [1] {language[lang]['EXIT']}'
+    sleep(0.26)
+
+    vehicle_list = data_load()
 
     while True:
 
-        print()
-        print(Panel(content, title = f'[red]{language[lang]['REGISTER_EXIT']}[/]', width=30))
+        if not vehicle_list:
+            print(f'{language[lang]['NO_REGISTERED_VEHICLE']}')
+            break
+
+        show_vehicles(vehicle_list, lang, f'[red]{language[lang]['EXIT']}[/]')
 
 
         select = menu_option('1', lang)
 
         if select == '':
             break
-
 
         vehicle = search_vehicle_id(vehicle_list, lang)
 
@@ -156,8 +171,7 @@ def exit_menu(lang):
         print(f'{language[lang]['VEHICLE_FOUND']}: {vehicle.tracking_id}')
         sleep(1)
 
-        if vehicle is None:
-            continue
+
 
         exit_time = get_valid_time(f'\n   {language[lang]['EXIT_TIME']}: ', lang)
 
@@ -177,20 +191,55 @@ def exit_menu(lang):
 
         data_save(vehicle_list)
 
+    sleep(0.2)
+
 
 # [3] MENU
 def show_register_menu(lang):
 
     vehicle_list = data_load()
 
-    content = (f'\n     [1] {language[lang]['SHOW_REGISTER']}'
-              f'\n\n     [2] {language[lang]['SEE_QUANTITY']}')
 
     while True:
 
-        print(Panel(content, title = f'[blue]{language[lang]['REGISTERED_VEHICLES']}[/]', width=35))
-        break
-        #Building
+        if not vehicle_list:
+            print(f'{language[lang]['NO_REGISTERED_VEHICLE']}')
+            break
+
+        sleep(0.26)
+
+        show_vehicles(vehicle_list, lang, f'[blue]{language[lang]['REGISTERED_VEHICLES']}[/]')
+
+        vehicle = search_vehicle_id(vehicle_list, lang)
+
+        if vehicle is None:
+            break
+
+        print(f'{language[lang]['VEHICLE_FOUND']}: {vehicle.tracking_id}')
+
+        sleep(1)
+
+        edit = input(f'{language[lang]['WANNA_CHANGE_VEHICLE']}: ').strip().upper()
+
+        if edit == '' or edit[0] == 'N':
+            break
+
+        print()
+        plate = plate_verify(lang)
+
+        entry_time = get_valid_time(f'\n{language[lang]['ENTRY_TIME']}: ', lang)
+
+        vehicle.plate = plate
+        vehicle.entry_time = entry_time
+
+        data_save(vehicle_list)
+        sleep(0.6)
+        print(f'   {language[lang]['SUCCESSFULLY_SAVED']}')
+
+    sleep(0.2)
 
 
-show_register_menu('ptbr')
+
+#register_menu('ptbr')
+#exit_menu('ptbr')
+#show_register_menu('ptbr')
