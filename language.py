@@ -72,7 +72,7 @@ language = {
             'VEHICLES ENTRANCE': 'VEHICLE ENTRIES',
             'VEHICLES EXIT':'VEHICLE EXITS',
             'TIME': 'TIME',
-            'PLATE': 'LICENSE PLATE',
+            'PLATE': 'PLATE',
             #REGISTER MESSAGE
             'REGISTRATION_SUCCESSFULLY_COMPLETED': '[bright_white]REGISTRATION COMPLETED[/] [green3]SUCCESSFULLY[/]',
             'REGISTER_AGAIN': 'REGISTER ANOTHER VEHICLE?',
@@ -108,6 +108,6 @@ language = {
 
 
             #DATA
-            'SUCCESSFULLY_SAVED': '[green]DADOS SALVOS COM SUCESSO[/]'
+            'SUCCESSFULLY_SAVED': '[green]DATA SUCCESSFULLY SAVED[/]'
     }
 }

@@ -76,7 +76,7 @@ def show_vehicles(vehicle_list,lang, msg):
 
     for n, v in enumerate(vehicle_list):
         cont += 1
-        content += f'{v.tracking_id} -|- {v.plate}\n\n'
+        content += f'{v.tracking_id} -|- {v.plate} - {v.entry_time.hour}:{v.entry_time.minute}\n\n'
 
     quantity =  f'               {cont} {language[lang]['VEHICLES']}'
 
@@ -99,7 +99,7 @@ def search_vehicle_id(vehicle_list, lang):
 
         search_id = input('         ID > ').strip()
         if search_id == '':
-            return None
+            return ''
 
         matches = [v for v in vehicle_list if v.tracking_id.startswith(search_id)]
 
@@ -158,12 +158,10 @@ def exit_menu(lang):
         show_vehicles(vehicle_list, lang, f'[red]{language[lang]['EXIT']}[/]')
 
 
-        select = menu_option('1', lang)
-
-        if select == '':
-            break
 
         vehicle = search_vehicle_id(vehicle_list, lang)
+        if vehicle == '':
+            break
 
         if vehicle is None:
             continue
@@ -211,6 +209,8 @@ def show_register_menu(lang):
         show_vehicles(vehicle_list, lang, f'[blue]{language[lang]['REGISTERED_VEHICLES']}[/]')
 
         vehicle = search_vehicle_id(vehicle_list, lang)
+        if vehicle == '':
+            break
 
         if vehicle is None:
             break
@@ -237,9 +237,3 @@ def show_register_menu(lang):
         print(f'   {language[lang]['SUCCESSFULLY_SAVED']}')
 
     sleep(0.2)
-
-
-
-#register_menu('ptbr')
-#exit_menu('ptbr')
-#show_register_menu('ptbr')

@@ -1,50 +1,78 @@
-# Parking Management System (PMS)
+# Parking Management System
 
 ## System Screenshots
 
+
 ### Main Menu
 
-#Building
+<img width="841" height="484" alt="image" src="https://github.com/user-attachments/assets/6c2c3366-4a55-4039-b399-754a43352c9c" />
 
-### Vehicle Registration, departure and plate changing
 
-#Building
+
+
+### Vehicle Registration and departure
+
+<img width="1217" height="655" alt="image" src="https://github.com/user-attachments/assets/794905ce-fdd9-40ad-8a9c-b27356e6c860" />
+
+### Editing and changing language
+
+<img width="1195" height="575" alt="image" src="https://github.com/user-attachments/assets/85c9b537-0aa6-4216-9b7a-093993e47dfa" />
+
+
 
 ## About
 
-This project was developed as a university assignment. The objective was to create a parking management system capable of registering vehicle entries and exits, calculating parking fees based on the time each vehicle remained parked, and keeping track of the total number of vehicles currently in the parking lot.
+This project was developed as a university assignment. Its purpose is to simulate a parking management system capable of registering vehicle arrivals and departures, calculating parking fees based on the parking duration, and keeping track of the total number of vehicles currently parked.
+
 
 ## Concepts Applied
 
 * Object-Oriented-Programming (OOP)
 * Modularization
 * Exception handling
-* File saving (JSON)
+* File saving (JSON Data persistence)
 * Input validation
-* Regex
+* Regular expressions (Regex)
 * Loops and functions
 * Datetime manipulation
+* Menu-Driven Interface
+* Data encapsulation
+
 
 ## Features
 
-* Access the system's main menu.
-* Register a vehicle by entering its arrival time (hour and minute) and license plate.
-* After registering a vehicle, choose to register another one or return to the main menu.
-* View the total number of parked vehicles.
-* Register the exit time (hour and minute) of any previously registered vehicle.
-* Change vehicle plate.
-* Automatically calculate the parking fee based on the parking duration.
-* Automatic save.
-* Language selection
+* Interactive menu interface
+* Register vehicle arrivals
+* Register vehicle departures
+* Edit vehicle license plates
+* Calculate parking fees automatically
+* Display the total number of parked vehicles
+* Automatic data saving (JSON)
+* Multi-language support
+* Input validation
 
-## How to Run the Project
 
-1. Clone or download this repository:
+## Built with
+- Python 3
+- Rich
+- JSON
+- Standard Library (datetime, re, os)
 
-   ```
-   https://github.com/Epic10ka/Gerenciador-de-Estacionamento
-   ```
 
-2. Open the project folder.
+## License
 
-3. Run the `parking_sys` file and test the application.
+This project is licensed under the MIT License.
+
+
+## How to Run
+
+1. Clone the repository
+
+```bash
+git clone https://github.com/Epic10ka/Parking-System.git
+
+2. Navigate to the project directory.
+cd Parking-System
+
+3. Run the application.
+python parking_sys.py

@@ -8,8 +8,8 @@ def error(message):
 
 def try_int(msg, lang):
 
-    num = input(msg)
     while True:
+        num = input(msg)
         try:
             return int(num)
         except ValueError:
