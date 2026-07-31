@@ -35,6 +35,7 @@ This project was developed as a university assignment. The objective was to crea
 * Change vehicle plate.
 * Automatically calculate the parking fee based on the parking duration.
 * Automatic save.
+* Language selection
 
 ## How to Run the Project
 
